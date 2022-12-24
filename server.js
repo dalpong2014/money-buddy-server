@@ -5,7 +5,11 @@ const path = require("path");
 
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 8080;
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://money-buddy-app.onrender.com"],
+  })
+);
 app.use(express.json());
 
 //serve static assets if in production
